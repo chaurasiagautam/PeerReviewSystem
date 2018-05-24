@@ -1,0 +1,12 @@
+-- SQL Scripts --
+
+CREATE TABLE PeerMST (
+    PID int NOT NULL,
+    LASTNAME varchar(255) NOT NULL,
+    FIRSTNAME varchar(255) NOT NULL,
+    GENDER varchar(10) NOT NULL,
+    PWD varchar(255) NOT NULL,
+    SEQ1 varchar(255),
+    SEQ2 varchar(255),
+    PRIMARY KEY (PID)
+);
