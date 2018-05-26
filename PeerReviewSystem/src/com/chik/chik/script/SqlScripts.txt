@@ -11,7 +11,6 @@ CREATE TABLE PeerMST (
     PRIMARY KEY (PID)
 );
 
-
 create table peerreview(
    peerid int not null,
    reviewerid int not null,
