@@ -31,7 +31,6 @@ public class HibernateConfiguration {
 			System.err.println("Failed to create sessionFactory PeerReviewsBean object." + ex);
 			throw new ExceptionInInitializerError(ex);
 		}
-		
 		return factory;
 	}
 }
