@@ -2,11 +2,13 @@ package com.chik.chik.Test;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import com.chik.chik.bean.PeerMSTBean;
 import com.chik.chik.service.PeerService;
 
 public class DryRun {
-
+	public static final Logger log = Logger.getLogger(PeerService.class);
 	public static void main(String[] args) {
 
 		PeerMSTBean pBean = new PeerMSTBean();
@@ -20,11 +22,11 @@ public class DryRun {
 		pBean.setSeq1("1");
 		pBean.setSeq2("1");
 		
-		pService.addPeerToSystem(pBean);
+//		pService.addPeerToSystem(pBean);
 		List<PeerMSTBean> list = pService.getAllPeersFromSystem();
 		
 		for(PeerMSTBean pBn : list){
-			System.out.println(pBn.toString());
+			log.info(pBn.toString());
 		}
 	}
 

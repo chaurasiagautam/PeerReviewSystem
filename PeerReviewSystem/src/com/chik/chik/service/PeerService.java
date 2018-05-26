@@ -4,6 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -17,14 +18,14 @@ public class PeerService implements PeerServiceInterface<PeerMSTBean, Map<String
 
 	public static final String SUCCESS = "SUCCESS";
 	public static final String FAILURE = "FAILURE";
-
+	public static final Logger log = Logger.getLogger(PeerService.class);
 
 	/* Method to CREATE an peers in the database */
 	/* (non-Javadoc)
 	 * @see com.chik.chik.Service.PeerServices#addPeerToSystem(com.chik.chik.dao.PeerMSTBean)
 	 */
 	public String addPeerToSystem(PeerMSTBean pBean) {
-
+		log.info("Adding user to system");
 		String returnMsg = null;
 		Session session = new HibernateConfiguration().getPeerMSTBeanFactory().openSession();
 		Transaction tx = null;
@@ -73,8 +74,8 @@ public class PeerService implements PeerServiceInterface<PeerMSTBean, Map<String
 			peersList = session.createQuery("FROM PeerMSTBean").list();
 			for (Iterator iterator = peersList.iterator(); iterator.hasNext();) {
 				PeerMSTBean peers = (PeerMSTBean) iterator.next();
-				System.out.print("First Name: " + peers.getFirstName());
-				System.out.print("  Last Name: " + peers.getLastName());
+				log.info("First Name: " + peers.getFirstName());
+				log.info("  Last Name: " + peers.getLastName());
 			}
 			tx.commit();
 
