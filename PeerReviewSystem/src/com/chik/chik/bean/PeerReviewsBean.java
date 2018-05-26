@@ -9,6 +9,7 @@ import javax.persistence.Table;
 @Table(name="peerreviews")
 public class PeerReviewsBean {
 	
+	
 	@Id
 	@Column(name="peerId")
 	private int peerId;
