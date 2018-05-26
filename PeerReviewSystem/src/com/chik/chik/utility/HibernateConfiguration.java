@@ -14,7 +14,21 @@ public class HibernateConfiguration {
 			// addPackage("com.xyz") //add package if used.
 					
 		} catch (Throwable ex) {
-			System.err.println("Failed to create sessionFactory object." + ex);
+			System.err.println("Failed to create sessionFactory PeerMst bean object." + ex);
+			throw new ExceptionInInitializerError(ex);
+		}
+		
+		return factory;
+	}
+	
+	public SessionFactory getPeerReviewsBeanFactory(){
+		SessionFactory factory;
+		try {
+			factory = new AnnotationConfiguration().configure().addAnnotatedClass(com.chik.chik.bean.PeerReviewsBean.class).buildSessionFactory();
+			// addPackage("com.xyz") //add package if used.
+					
+		} catch (Throwable ex) {
+			System.err.println("Failed to create sessionFactory PeerReviewsBean object." + ex);
 			throw new ExceptionInInitializerError(ex);
 		}
 		
