@@ -1,21 +1,36 @@
 package com.chik.chik.bean;
 
+import java.io.Serializable;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="peerreviews")
-public class PeerReviewsBean {
+public class PeerReviewsBean implements Serializable{
 	
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
-	@Column(name="peerId")
+	//@Column(name="peerId")
+	@ManyToOne(targetEntity = PeerMSTBean.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "peerid", referencedColumnName = "PID")
 	private int peerId;
 	
 	@Id
-	@Column(name="reviewerId")
+	//@Column(name="reviewerId")
+	@ManyToOne(targetEntity = PeerMSTBean.class, cascade = CascadeType.ALL )
+    @JoinColumn(name = "reviewerid", referencedColumnName = "PID")
 	private int reviewerId;
 	
 	@Column(name="review1")
@@ -92,5 +107,11 @@ public class PeerReviewsBean {
 	}
 	public void setFeedback(String feedback) {
 		this.feedback = feedback;
+	}
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return this.peerId+" "+this.reviewerId+" "+this.review1;
 	}
 }
