@@ -16,7 +16,7 @@
 
    
       <property name = "hibernate.connection.url">
-         jdbc:mysql://localhost:3306/prs
+         jdbc:mysql://localhost:3306/PRS
       </property>
    
       <property name = "hibernate.connection.username">
@@ -24,8 +24,11 @@
       </property>
    
       <property name = "hibernate.connection.password">
-         rootroot
+         Ankur_91
       </property>
+      
+      <mapping class="com.chik.chik.bean.PeerMSTBean"/>
+    <mapping class="com.chik.chik.bean.PeerReviewsBean"/>
 
    </session-factory>
 </hibernate-configuration>

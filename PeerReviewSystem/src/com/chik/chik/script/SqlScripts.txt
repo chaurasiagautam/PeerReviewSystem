@@ -11,15 +11,15 @@ CREATE TABLE PeerMST (
     PRIMARY KEY (PID)
 );
 
-create table peerreview(
+create table peerreviews(
    peerid int not null,
    reviewerid int not null,
-   review1 int default 0 check(review1 >=0 and review1 <= 5),
-   review2 int default 0 check(review2 >=0 and review2 <= 5),
-   review3 int default 0 check(review3 >=0 and review3 <= 5),
-   review4 int default 0 check(review4 >=0 and review4 <= 5),
-   review5 int default 0 check(review5 >=0 and review5 <= 5),
-   review6 int default 0 check(review6 >=0 and review6 <= 5),
+   review1 int check(review1 >=0 and review1 <= 5),
+   review2 int check(review2 >=0 and review2 <= 5),
+   review3 int check(review3 >=0 and review3 <= 5),
+   review4 int check(review4 >=0 and review4 <= 5),
+   review5 int check(review5 >=0 and review5 <= 5),
+   review6 int check(review6 >=0 and review6 <= 5),
    feedback varchar(2000) not null,
    foreign key(peerid) references peermst(pid),
    foreign key(reviewerid) references peermst(pid),
